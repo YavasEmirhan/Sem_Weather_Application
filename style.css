@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 95%;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    outline: none;
+    background: #ebfffc;
+    border-radius: 2rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.search-box button {
+    padding: 0.8rem 1.5rem;
+    background: #ebfffc;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #5b548a;
+    color: white;
+}
+
+.weather-box {
+    text-align: center;
+}
+
+.location {
+    margin-bottom: 2rem;
+}
+
+.location h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.weather-info h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 1rem;
+}
+
+#weather-icon {
+    width: 100px;
+    margin: 1rem 0;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.forecast-button,
+.map-button,
+.road-risk-button,
+.news-button,
+.historical-button {
+    width: 100%;
+    padding: 1rem;
+    background: #5b548a;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.forecast-button:hover,
+.map-button:hover,
+.road-risk-button:hover,
+.news-button:hover,
+.historical-button:hover {
+    background: #4a4372;
+}
+
+.map-box,
+.road-risk-box,
+.news-box,
+.historical-box {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+.map-box h3,
+.road-risk-box h3,
+.news-box h3,
+.historical-box h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #5b548a;
+}
+
+#weather-map,
+#road-risk-map {
+    height: 600px;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.weather-popup {
+    text-align: center;
+    min-width: 200px;
+}
+
+.weather-popup h3 {
+    color: #5b548a;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.weather-popup img {
+    width: 64px;
+    height: 64px;
+    margin: 0.5rem auto;
+    display: block;
+}
+
+.weather-popup .temp {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.weather-popup .desc {
+    font-size: 1rem;
+    color: #666;
+    text-transform: capitalize;
+}
+
+.weather-label {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #5b548a;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+    z-index: 1000;
+}
+
+.weather-label .city-name {
+    font-weight: bold;
+    color: #5b548a;
+    margin-bottom: 2px;
+}
+
+.weather-label .temp {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.weather-label img {
+    width: 30px;
+    height: 30px;
+    margin: 2px auto;
+    display: block;
+}
+
+.leaflet-control-layers {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 5px !important;
+    padding: 10px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-control-layers-list {
+    margin-bottom: 0 !important;
+}
+
+.leaflet-control-layers-overlays label {
+    margin: 5px 0 !important;
+    font-size: 0.9rem !important;
+}
+
+.weather-legend {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+}
+
+.risk-legend {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.risk-legend h4 {
+    margin-bottom: 8px;
+    color: #5b548a;
+}
+
+.risk-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+}
+
+.risk-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 0 0.5rem;
+}
+
+.news-item {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.news-item h4 {
+    color: #5b548a;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.news-item .news-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.news-item .news-source {
+    font-weight: bold;
+    color: #5b548a;
+}
+
+.news-item .news-date {
+    font-style: italic;
+}
+
+.news-item p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.news-item .news-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #5b548a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.news-item .news-link:hover {
+    color: #4a4372;
+    text-decoration: underline;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Kaydırma çubuğu stilleri */
+.news-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.news-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+    background: #5b548a;
+    border-radius: 4px;
+}
+
+.news-container::-webkit-scrollbar-thumb:hover {
+    background: #4a4372;
+}
+
+.date-picker {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.date-picker input[type="date"] {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #5b548a;
+    border-radius: 2rem;
+    font-size: 1rem;
+    outline: none;
+    background: #ebfffc;
+}
+
+.date-picker button {
+    padding: 0.8rem 1.5rem;
+    background: #5b548a;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.date-picker button:hover {
+    background: #4a4372;
+}
+
+.historical-data {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.historical-data .weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.historical-data .weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.historical-data .temperature {
+    font-size: 3rem;
+    color: #5b548a;
+    font-weight: bold;
+}
+
+.historical-data .description {
+    font-size: 1.5rem;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.historical-data .details {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+.historical-data .detail-item {
+    text-align: center;
+}
+
+.historical-data .detail-item img {
+    width: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.historical-data .detail-item p:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5b548a;
+}
+
+.historical-data .detail-item p:last-child {
+    color: #666;
+    font-size: 0.9rem;
+}

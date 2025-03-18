@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu Uygulaması</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" placeholder="Şehir giriniz..." id="search-input">
+            <button id="search-button">Ara</button>
+        </div>
+        <div class="weather-box">
+            <div class="location">
+                <h2 id="city">-</h2>
+                <img src="" alt="weather-icon" id="weather-icon">
+            </div>
+            <div class="weather-info">
+                <h1 id="temperature">-°C</h1>
+                <p id="description">-</p>
+            </div>
+            <div class="details">
+                <div class="col">
+                    <img src="https://cdn-icons-png.flaticon.com/512/219/219816.png" alt="humidity">
+                    <div>
+                        <p id="humidity">-%</p>
+                        <p>Nem</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="https://cdn-icons-png.flaticon.com/512/172/172922.png" alt="wind">
+                    <div>
+                        <p id="wind-speed">- km/s</p>
+                        <p>Rüzgar Hızı</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button id="forecast-button" class="forecast-button">7 Günlük Tahmin Göster</button>
+                <button id="map-button" class="map-button">Ülke Haritasını Göster</button>
+                <button id="road-risk-button" class="road-risk-button">Yol Risklerini Göster</button>
+                <button id="news-button" class="news-button">Hava Durumu Haberlerini Göster</button>
+                <button id="historical-button" class="historical-button">Geçmiş Tarihli Hava Durumu</button>
+            </div>
+        </div>
+        <div class="forecast-box" id="forecast-box" style="display: none;">
+            <h3>7 Günlük Tahmin</h3>
+            <div class="forecast-container" id="forecast-container">
+                <!-- Tahminler buraya dinamik olarak eklenecek -->
+            </div>
+        </div>
+        <div class="map-box" id="map-box" style="display: none;">
+            <h3>Ülke Hava Durumu Haritası</h3>
+            <div id="weather-map"></div>
+        </div>
+        <div class="road-risk-box" id="road-risk-box" style="display: none;">
+            <h3>Yol Riskleri Haritası</h3>
+            <div id="road-risk-map"></div>
+        </div>
+        <div class="news-box" id="news-box" style="display: none;">
+            <h3>Güncel Hava Durumu Haberleri</h3>
+            <div class="news-container" id="news-container">
+                <!-- Haberler buraya dinamik olarak eklenecek -->
+                <div class="loading">Haberler yükleniyor...</div>
+            </div>
+        </div>
+        <div class="historical-box" id="historical-box" style="display: none;">
+            <h3>Geçmiş Tarihli Hava Durumu</h3>
+            <div class="date-picker">
+                <input type="date" id="historical-date" max="">
+                <button id="get-historical-data">Göster</button>
+            </div>
+            <div class="historical-data" id="historical-data">
+                <!-- Geçmiş tarihli veriler buraya dinamik olarak eklenecek -->
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
